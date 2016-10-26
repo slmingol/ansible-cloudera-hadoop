@@ -1,8 +1,8 @@
 # Ansible Playbook: cloudera-hadoop
 
-An ansible playbook to deploy cloudera hadoop components to the cluster
+An ansible playbook to deploy Cloudera Hadoop components to the cluster
 # Overview
-The playbook is composed according to [official cloudera guides](http://www.cloudera.com/content/www/en-us/documentation/enterprise/5-4-x/topics/cdh_ig_command_line.html) with a primary purpose of production deployment in mind. High availability for **HDFS** and **Yarn** is implemented when sufficient number of resources(hosts) is configured. From the other side, all of the components can be also deployed on a single host.
+The playbook is composed according to [official cloudera guides](http://www.cloudera.com/content/www/en-us/documentation/enterprise/5-4-x/topics/cdh_ig_command_line.html) with a primary purpose of production deployment in mind. High availability for **HDFS** and **Yarn** is implemented when a sufficient number of resources(hosts) is configured. From the other side, all of the components can be also deployed on a single host.
 
 # Description
 #### The playbook is able to setup the required services for components:
@@ -21,15 +21,15 @@ The playbook is composed according to [official cloudera guides](http://www.clou
 
 The configuration is _very_ simple:
 
-It’s only required to place hostname(s) to the appropriate group in [hosts](hosts) file, and the required services will be setup.
+It’s only required to place hostname(s) under the appropriate groups in the [hosts](hosts) file, and the required services will be setup.
 
 The playbook contain all configuration files in roles directories. If you need to add or change any parameter you can edit
 the required configuration file which can be found in roles/_service_/[files|templates] directory.
 
-The playbook run configuration check tasks at start, and will stop if the configuration is not supported,
+The playbook runs configuration check tasks at start, and will stop if the configuration is not supported,
 providing a descriptive error message.
 
-Besides of cluster( or single host ) setup, the playbook also generates cluster manager configuration file located at workdir/services.xml.
+Besides of cluster( or single host ) setup, the playbook also generates a cluster manager configuration file located at workdir/services.xml.
 Please visit [clinit manager home page](https://github.com/sergevs/clinit) and see [manual](https://github.com/sergevs/clinit/wiki) .
 The rpm package can be downloaded from [clinit-1.0-ssv1.el6.noarch.rpm](https://github.com/sergevs/clinit/releases/download/1.0/clinit-1.0-ssv1.el6.noarch.rpm).
 After clinit package installed you’ll be able to stop, start and see status of services on any node.
@@ -107,16 +107,16 @@ OS version: Redhat/CentOS 6, 7
 
 Cloudera Hadoop version: 5.4 - 5.7
 
-The required for Cloudera Hadoop repositories have to be properly configured on the target hosts.
+The requirements for the Cloudera Hadoop repositories has to be properly configured on the target hosts.
 See also [official documentation](http://www.cloudera.com/content/www/en-us/documentation/enterprise/latest/topics/cdh_ig_yumrepo_local_create.html)
 
 Java package(s) have to be available in the repository. You can download [jdk-8u65-linux-x64.rpm](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html#jdk-8u60-oth-JPR) from official oracle site
 
-SSH key passwordless authentication must be configured for root account for all target hosts.
+SSH key passwordless authentication must be configured for the root account for all target hosts.
 
 **se_linux** must be disabled
 
-**remote_user = root** must be configured for ansible.
+**remote_user = root** must be configured for Ansible.
 
 ## License
 
